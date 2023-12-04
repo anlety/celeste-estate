@@ -30,13 +30,16 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
+
 app.use(express.json());
 app.use(cookieParser());
+
+app.listen(4000, () => {
+  console.log(`The server is running on port 4000`);
+});
 app.use(cors());
 
-app.listen(port, () => {
-  console.log(`The server is running on port ${port}`);
-});
+
 
 app.use("/server/user", userRoute);
 app.use("/server/auth", authRoute);
@@ -62,6 +65,6 @@ app.use((err, req, res, next) => {
 // mongoose.connect("mongodb+srv://leti:kongolo@cluster0.sqfsvmc.mongodb.net/celeste-estate?retryWrites=true&w=majority").then(() => {console.log('Successfully connected to MongoDb');}).catch(err => {console.log(err);});
 
 // Listen to a port number
-const port = process.env.Port || 4000;
+
 
 
