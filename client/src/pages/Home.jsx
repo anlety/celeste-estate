@@ -22,6 +22,7 @@ export default function Home() {
       try {
         const res = await fetch('server/listing/get?type=rent&limit=4')
         const data =await res.json();
+        console.log(data)
         setRentListing(data)
         console.log(data)
         fetchSellListings()
@@ -80,8 +81,8 @@ export default function Home() {
       </div>
       <div className='relative z-30 flex flex-col  w-full pt-10 items-center'>
       <p className='text-4xl text-white font-bold mt-20'>Celeste-estate know how to get more for your property</p>
-      <p className='text-lg text-white font-medium'>let's find a home that's perfect for you</p>
-      <form onSubmit = {handleSubmit} className="bg-slate-100 p-3 rounded-lg flex items-center"  className="bg-white p-3 rounded-lg flex items-center shadow-sm">
+      <p className='text-lg text-white font-medium'>let find a home which is perfect for you</p>
+      <form onSubmit = {handleSubmit}   className="bg-white p-3 rounded-lg flex items-center shadow-sm">
         <input className="bg-white focus:outline-none w-35 sm:w-80" type="text" placeholder="Search suburb"  value={searchTerm} onChange = {(e) => setSearchTerm(e.target.value)}/>
         <button type="submit" className="bg-blue-600 p-2 rounded-full hover:bg-blue-800"><BsSearch className=" text-white"/></button>
       </form>
