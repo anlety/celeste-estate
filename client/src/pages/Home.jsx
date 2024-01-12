@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {BsSearch} from "react-icons/bs";
 
 import { Link, useNavigate } from "react-router-dom";
-import ListingCard from "../components/ListingCard";
+import ListingItem from "../components/ListingItem";
 import Agents from "../components/Agents";
 // import Hero from "../components/Hero";
 import heroImg from '../assets/real-estate.jpg';
@@ -24,7 +24,7 @@ export default function Home() {
         const data =await res.json();
         console.log(data)
         setRentListing(data)
-        console.log(data)
+        // console.log(data)
         fetchSellListings()
       } catch (error) {
         console.log(error)
@@ -135,7 +135,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               {
                 rentListing.map((listing) => (
-                  <ListingCard listing={listing} key={listing._id} />
+                  <ListingItem listing={listing} key={listing._id} />
                 ))
               }
             </div>
@@ -156,7 +156,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               {
                 sellListing.map((listing) => (
-                  <ListingCard listing={listing} key={listing._id} />
+                  <ListingItem listing={listing} key={listing._id} />
                 ))
               }
             </div>
@@ -169,7 +169,7 @@ export default function Home() {
         offerListing && offerListing.length > 0 && (
           <div className="">
             <div className="my-3">
-              <h2 className="text-2xl font-semibold text-slate-600">recent offer</h2>
+              <h2 className="text-2xl font-semibold text-slate-600">Recent offer</h2>
               <Link className="text-sm text-blue-600 hover:text-blue-800" to={'/search?offer=true'}>
                 Show more offer
               </Link>
@@ -177,7 +177,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-4">
               {
                 offerListing.map((listing) => (
-                  <ListingCard listing={listing} key={listing._id} />
+                  <ListingItem listing={listing} key={listing._id} />
                 ))
               }
             </div>

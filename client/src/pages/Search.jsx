@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import {useNavigate} from 'react-router-dom'
-import ListingCard from "../components/ListingCard";
+import ListingItem from "../components/ListingItem";
 
 
 export default function Search() {
@@ -169,7 +169,7 @@ const onShowMoreClick = async() => {
             <p className="text-xl text-slate-700 text-center w-full">Loading...</p>
           )}
           {
-            !loading && listings && listings.map((listing) => (<ListingCard key={listing._id} listing={listing}/>))
+            !loading && listings && listings.map((listing) => (<ListingItem key={listing._id} listing={listing}/>))
           }
           {
             showMore && (<button onClick={onShowMoreClick} className="text-blue-600 p-3 hover:text-blue-800 text-center w-full">Show more</button>)
