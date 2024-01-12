@@ -24,7 +24,7 @@ export default function Home() {
         const data =await res.json();
         console.log(data)
         setRentListing(data)
-        // console.log(data)
+        console.log(data)
         fetchSellListings()
       } catch (error) {
         console.log(error)
@@ -69,7 +69,7 @@ export default function Home() {
     if(searchTermFromUrl) {
       setSearchTerm(searchTermFromUrl);
     }
-  }, [location.search])
+  }, [])
   return (
     <div>
       
@@ -80,8 +80,8 @@ export default function Home() {
         <img src={heroImg} alt="Hero" className='object-cover w-full h-[30rem]'/>
       </div>
       <div className='relative z-30 flex flex-col  w-full pt-10 items-center'>
-      <p className='text-4xl text-white font-bold mt-20'>Celeste-estate know how to get more for your property</p>
-      <p className='text-lg text-white font-medium'>let find a home which is perfect for you</p>
+      <p className='text-4xl text-white font-bold mt-20 mb-2'>Celeste-estate know how to get more for your property</p>
+      <p className='text-lg text-white font-medium mb-1'>let find a home which is perfect for you</p>
       <form onSubmit = {handleSubmit}   className="bg-white p-3 rounded-lg flex items-center shadow-sm">
         <input className="bg-white focus:outline-none w-35 sm:w-80" type="text" placeholder="Search suburb"  value={searchTerm} onChange = {(e) => setSearchTerm(e.target.value)}/>
         <button type="submit" className="bg-blue-600 p-2 rounded-full hover:bg-blue-800"><BsSearch className=" text-white"/></button>

@@ -44,7 +44,7 @@ export default function SignUp() {
     // console.log(data)
   }
   return (
-    <div className="p-3 max-w-lg mx-auto">
+    <div className="p-3 max-w-lg mx-auto mb-3">
       <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
       <input type="text" placeholder="username" className="border p-3 rounded-lg" id="username"  onChange={handleChange}/>
