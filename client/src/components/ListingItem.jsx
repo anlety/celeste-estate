@@ -3,7 +3,10 @@ import { Link } from "react-router-dom";
 import { ImLocation2 } from "react-icons/im";
 import { BiBed, BiBath } from "react-icons/bi";
 import { AiOutlineCar } from "react-icons/ai";
-import { GiDesk } from "react-icons/gi";
+
+import { LiaRulerCombinedSolid } from "react-icons/lia";
+import { LuSofa } from "react-icons/lu";
+import { FaComputer } from "react-icons/fa6";
 
 const ListingItem = ({ listing }) => {
   return (
@@ -47,9 +50,15 @@ const ListingItem = ({ listing }) => {
             <div className="font-bold text-sm flex items-center gap-1">
               {listing.parking} <AiOutlineCar className="text-lg" />{" "}
             </div>
+           {listing.office && (<div className="font-bold text-sm flex items-center gap-1">
+              {listing.office} <FaComputer className="text-lg" />{" "}
+            </div>)}
             <div className="font-bold text-sm flex items-center gap-1">
-              {listing.office ? <GiDesk className="text-lg" /> : ""}{" "}
+              {listing.furnished ? <LuSofa  className="text-lg" /> : ""}
             </div>
+            
+           
+            
           </div>
         </div>
       </Link>

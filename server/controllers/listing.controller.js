@@ -82,17 +82,36 @@ export const getListings = async (req, res, next) => {
       furnished = { $in: [false, true] };
     }
 
-    // let parking = req.query.parking;
+    let office = req.query.office;
 
-    // if (parking === undefined || parking === 'false') {
-    //   parking = { $in: [false, true] };
-    // }
+    if (office === undefined || office === 'false') {
+      office = { $in: [false, true] };
+    }
+   
+    let intercom = req.query.intercom ;
+    if (intercom  === undefined || intercom  === 'false') {
+      intercom  = { $in: [false, true] };
+    }
+    let swimmingPool = req.query.swimmingPool ;
+    if (swimmingPool  === undefined || swimmingPool  === 'false') {
+      swimmingPool  = { $in: [false, true] };
+    }
+
+    let balcony = req.query.balcony ;
+    if (balcony  === undefined || balcony  === 'false') {
+      balcony  = { $in: [false, true] };
+    }
+    let gym = req.query.gym ;
+    if (gym  === undefined || gym  === 'false') {
+      gym  = { $in: [false, true] };
+    }
 
     let type = req.query.type;
 
     if (type === undefined || type === "all") {
       type = { $in: ["sale", "rent"] };
     }
+  
 
     const searchTerm = req.query.searchTerm || "";
     // const title = req.query.title || "";
@@ -103,14 +122,17 @@ export const getListings = async (req, res, next) => {
     const order = req.query.order || "desc";
 
     const listings = await Listing.find({
-      // title: { $regex: title, $options: "i" },
+      
       address: { $regex: searchTerm, $options: "i" },
       offer,
       furnished,
-      // parking,
+      office,
+      intercom,
+      balcony,
+      gym,
+      swimmingPool,
       type,
-    })
-      .sort({ [sort]: order })
+    }).sort({ [sort]: order })
       .limit(limit)
       .skip(startIndex);
 

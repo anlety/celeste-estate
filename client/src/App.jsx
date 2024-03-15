@@ -18,13 +18,15 @@ import Listing from "./pages/Listing";
 import Search from "./pages/Search";
 import GetInTouch from "./pages/GetInTouch";
 import RequestAppraisal from "./components/RequestAppraisal";
-import Inspection from "./components/Inspection";
+
+import InspectionForm from "./components/InspectionForm";
 
 function App() {
   
 
   return (
     <Router>
+      
       <Header/>
 
       <Routes>
@@ -35,7 +37,7 @@ function App() {
         <Route path="/search" element={<Search/>} />
         <Route path="/contact" element={<GetInTouch/>} />
         <Route path="/request" element={<RequestAppraisal/>} />
-        <Route path="/inspection" element={<Inspection/>} />
+        <Route path="/inspection" element={<InspectionForm/>} />
         <Route path='/listing/:listingId' element={<Listing/>} />
         
         <Route element={<PrivateRoute/>}>

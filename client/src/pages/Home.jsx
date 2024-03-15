@@ -6,6 +6,7 @@ import ListingItem from "../components/ListingItem";
 import Agents from "../components/Agents";
 // import Hero from "../components/Hero";
 import heroImg from '../assets/real-estate.jpg';
+import InfoBoxes from "../components/InfoBoxes";
 
 
 export default function Home() {
@@ -91,35 +92,7 @@ export default function Home() {
     </div>
      
 
-{/* Swiper */}
-{/* <Swiper navigation>
-    {rentListing && rentListing.length >0 && rentListing.map((listing) => {
-      <SwiperSlide>
-        <div className="h-[500px]" key={listing} style={{background: `url(${listing.imageUrls[0]}) center no-repeat`, backgroundSize:"cover"}}></div>
-      </SwiperSlide>
-    })}
-</Swiper> */}
-
-{/* <Swiper navigation>
-        {offerListing &&
-          offerListing.length > 0 &&
-          offerListing.map((listing) => (
-            <SwiperSlide>
-              <div
-                style={{
-                  background: `url(${listing.imageUrls[0]}) center no-repeat`,
-                  backgroundSize: 'cover',
-                }}
-                className='h-[500px]'
-                key={listing._id}
-              ></div>
-            </SwiperSlide>
-          ))}
-      </Swiper> */}
-
-     {/* Hero */}
-              
-                {/* <Hero/> */}
+    <InfoBoxes />
 
 {/* show the listings */}
     <div className='max-w-6xl mx-auto p-3 flex flex-col gap-8 my-10'>
@@ -189,6 +162,8 @@ export default function Home() {
 
         <Agents/>
       </div>
+
+   
 
 
     </div>

@@ -1,48 +1,13 @@
+import { Link } from "react-router-dom"
 
 
-export default function Inspection() {
+const Inspection = () => {
   return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl text-center font-semibold my-7">Request an inspection</h1>
-      <p className="text-center"><span className='font-semibold'>Address: </span>08 tatra road, Werribee</p>
-      <h4 className="text-center  mb-3">Provide your contact details to request an inpection</h4>
-      
-      <form className="flex flex-col gap-4">
-        <div>
-          <div>
-          <div className="flex flex-col mb-3">
-            <label htmlFor="">First Name </label>
-            <input className="border p-3 rounded-lg"/>
-          </div>
-          <div className="flex flex-col mb-3">
-            <label htmlFor="">Last Name  </label>
-            <input className="border p-3 rounded-lg"/>
-          </div>
-         </div>
-          <div>
-          <div className="flex flex-col mb-3">
-            <label htmlFor=""> Email</label>
-            <input className="border p-3 rounded-lg"/>
-          </div>
-          <div className="flex flex-col mb-3">
-            <label htmlFor=""> Phone number </label>
-            <input className="border p-3 rounded-lg"/>
-          </div>
-         </div>
-
-         <div className="flex flex-col mb-3">
-          <label>Looking to move in by</label>
-          <input className="border p-3 rounded-lg" type='date'/>
-         </div>
-         <div className="flex flex-col mb-3">
-          <label>Comments</label>
-          <textarea className=" border p-3 rounded-lg"/>
-         </div>
-
-         <button className="text-white w-full bg-blue-500 uppercase p-3 rounded-lg hover:bg-blue-700 transition ease-in-out duration-200 items-center mb-5">Send a request </button>
-
-        </div>
-      </form>
-    </div>
+    <div className='max-w-6xl mx-auto mt-8 mb-5 pl-5'>
+    <h3 className="text-lg font-bold ">Inpections</h3>
+    <p>Request for an <Link className='text-blue-500 hover:text-blue-700 cursor-pointer' to='/inspection'>inspection</Link></p>
+  </div>
   )
 }
+
+export default Inspection

@@ -34,29 +34,33 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    squareFeet: {
+      type: Number,
+      
+    },
     furnished: {
       type: Boolean,
-      required: true,
+     
     },
     intercom: {
       type: Boolean,
-      required: true,
+     
     },
     balcony: {
       type: Boolean,
-      required: true,
+     
     },
     gym: {
       type: Boolean,
-      required: true,
+     
     },
     office: {
       type: Boolean,
-      required: true,
+      
     },
     swimmingPool: {
       type: Boolean,
-      required: true,
+      
     },
     parking: {
       type: Number,

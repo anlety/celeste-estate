@@ -23,6 +23,7 @@ export default function CreateListing() {
     bedrooms: 1,
     bathrooms: 1,
     toilet: 1,
+    squareFeet: 0,
     parking: 0,
     regularPrice: 50,
     discountPrice: 0,
@@ -349,6 +350,19 @@ export default function CreateListing() {
                 value={formData.parking}
               />
               <p>Parking</p>
+            </div>
+            <div className="flex items-center gap-2">
+              <input
+                type="number"
+                id="squareFeet"
+                min="0"
+                max="10000"
+                
+                className="p-3 border border-gray-300 rounded-lg"
+                onChange={handleChange}
+                value={formData.squareFeet}
+              />
+              <p className="">Square feet</p><span>in m2</span>
             </div>
             <div className="flex items-center gap-2">
               <input

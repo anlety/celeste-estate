@@ -9,8 +9,7 @@ export const test = (req, res) => {
 
 export const updateUser = async (req, res, next) => {
   // if the request.user from the verify user is not equal to the id from the params return error
-  if (req.user.id !== req.params.id)
-    return next(errorHandler(401, "You can only update your own account!"));
+  if (req.user.id !== req.params.id) return next(errorHandler(401, "You can only update your own account!"));
 
   // if everything is correct update the user
   try {
@@ -20,14 +19,13 @@ export const updateUser = async (req, res, next) => {
     }
     // Update the user
     const updateUser = await User.findByIdAndUpdate(
-      req.params.id,
-      {
+      req.params.id, {
         $set: {
           username: req.body.username,
           email: req.body.email,
           password: req.body.password,
           avatar: req.body.avatar,
-        },
+        }
       },
       { new: true }
     );
@@ -35,7 +33,7 @@ export const updateUser = async (req, res, next) => {
     // Separating the password and the rest
     const { password, ...rest } = updateUser._doc;
 
-    res.status(200).json({rest});
+    res.status(200).json(rest);
   } catch (error) {
     next(error);
   }

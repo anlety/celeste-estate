@@ -22,12 +22,12 @@ export default function Footer() {
         <Link to='https://instagram.com' target='_blank'><FaInstagram className='text-gray-300 text-3xl rounded-lg hover:text-white'/></Link>
         
       </div>
-      <div className='flex gap-3 items-center mb-2'>
+      {/* <div className='flex gap-3 items-center mb-2'>
         <Link to='/' className='text-gray-200 hover:text-white '>Home</Link>
         <Link to='/about' className='text-gray-200 hover:text-white '>About </Link>
         <Link to='/contact' className='text-gray-200 hover:text-white '>contact us</Link>
         <Link to="/request" className='bg-blue-400 rounded-md p-1 hover:bg-blue-600'><button className='text-gray-200 hover:text-white '>Request an appraisal</button> </Link>
-      </div>
+      </div> */}
       <div className='bg-black w-full text-center p-2'>
         <p className="text-white text-sm ">&copy; Celeste-estate.com 2024</p>
       </div>

@@ -12,7 +12,12 @@ export default function Search() {
   const [sidebarData, setSidebarData] = useState({
     searchTerm: '',
     type: 'all',
+    office: false,
     furnished: false,
+    intercom: false,
+    balcony: false,
+    gym: false,
+    swimmingPool: false,
     offer: false,
     sort: 'created_at',
     order: 'desc',
@@ -24,16 +29,26 @@ useEffect(() => {
   const urlParams = new URLSearchParams(location.search);
   const searchTermFromUrl =urlParams.get('searchTerm');
   const typeFromUrl = urlParams.get('type')
+  const officeFromUrl = urlParams.get('office')
   const furnishedFromUrl = urlParams.get('furnished')
+  const balconyFromUrl = urlParams.get('balcony')
+  const intercomFromUrl = urlParams.get('intercom')
+  const gymFromUrl = urlParams.get('gym')
+  const swimmingPoolFromUrl = urlParams.get('swimmingPool')
   const offerFromUrl = urlParams.get('offer')
   const sortFromUrl = urlParams.get('sort')
   const orderFromUrl = urlParams.get('order')
 
-  if(searchTermFromUrl || typeFromUrl || furnishedFromUrl || offerFromUrl || sortFromUrl || orderFromUrl ){
+  if(searchTermFromUrl || typeFromUrl || officeFromUrl || furnishedFromUrl || balconyFromUrl || intercomFromUrl|| intercomFromUrl || gymFromUrl || swimmingPoolFromUrl || offerFromUrl || sortFromUrl || orderFromUrl ){
     setSidebarData({
       searchTerm: searchTermFromUrl || '',
       type: typeFromUrl || 'all',
+      office: officeFromUrl === 'true' ? true : false,
       furnished: furnishedFromUrl === 'true' ? true : false,
+      intercom: intercomFromUrl === 'true' ? true : false,
+      balcony: balconyFromUrl === 'true' ? true : false,
+      gym: gymFromUrl === 'true' ? true : false,
+      swimmingPool: swimmingPoolFromUrl === 'true' ? true : false,
       offer: offerFromUrl === 'true' ? true : false,
       sort: sortFromUrl || 'created_at',
       order: orderFromUrl || 'desc',
@@ -65,7 +80,7 @@ const handleChange = (e) => {
   if(e.target.id === 'searchTerm') {
     setSidebarData({...sidebarData, searchTerm: e.target.value})
   }
-  if(e.target.id === 'furnished' || e.target.id === 'offer') {
+  if(e.target.id === 'office' || e.target.id === 'furnished'|| e.target.id === 'intercom' || e.target.id === 'balcony' || e.target.id === 'gym' || e.target.id === 'swimmingPool' || e.target.id === 'offer') {
     setSidebarData({...sidebarData, [e.target.id]: e.target.checked || e.target.checked === 'true' ? true : false,}) 
   }
   if(e.target.id === 'sort_order'){
@@ -80,7 +95,12 @@ const handleSubmit = (e) => {
   const urlParams = new URLSearchParams();
   urlParams.set('searchTerm', sidebarData.searchTerm);
   urlParams.set('type', sidebarData.type);
+  urlParams.set('office', sidebarData.office);
   urlParams.set('furnished', sidebarData.furnished);
+  urlParams.set('intercom', sidebarData.intercom);
+  urlParams.set('balcony', sidebarData.balcony);
+  urlParams.set('gym', sidebarData.gym);
+  urlParams.set('swimmingPool', sidebarData.swimmingPool);
   urlParams.set('offer', sidebarData.offer);
   urlParams.set('sort', sidebarData.sort);
   urlParams.set('order', sidebarData.order);
@@ -136,10 +156,32 @@ const onShowMoreClick = async() => {
           </div>
           <div className="flex gap-2 flex-wrap items-center">
             <label className="font-semibold">Amenities:</label>
+            
+            <div className="flex gap-2">
+              <input type="checkbox" id="office" className="w-5" onChange={handleChange} checked={sidebarData.office}/>
+              <span> Office</span>
+            </div>
             <div className="flex gap-2">
               <input type="checkbox" id="furnished" className="w-5" onChange={handleChange} checked={sidebarData.furnished}/>
-              <span>Office</span>
+              <span>Furnished</span>
             </div>
+            <div className="flex gap-2">
+              <input type="checkbox" id="intercom" className="w-5" onChange={handleChange} checked={sidebarData.intercom}/>
+              <span>Intercom</span>
+            </div>
+            <div className="flex gap-2">
+              <input type="checkbox" id="balcony" className="w-5" onChange={handleChange} checked={sidebarData.balcony}/>
+              <span>Balcony</span>
+            </div>
+            <div className="flex gap-2">
+              <input type="checkbox" id="gym" className="w-5" onChange={handleChange} checked={sidebarData.gym}/>
+              <span>Gym</span>
+            </div>
+            <div className="flex gap-2">
+              <input type="checkbox" id="swimmingPool" className="w-5" onChange={handleChange} checked={sidebarData.swimmingPool}/>
+              <span>Swimming pool</span>
+            </div>
+            
             
           </div>
 
@@ -150,18 +192,18 @@ const onShowMoreClick = async() => {
             <option value='regularPrice_desc'>Price high to low</option>
             <option value='regularPrice_asc'>Price low to high</option>
             <option value='bedrooms_desc'>Bedroom high to low</option>
-            <option value='bedroom_asc'>Bedroom low to high</option>
+            <option value='bedrooms_asc'>Bedroom low to high</option>
             <option value='createdAt_desc'>Latest</option>
             <option value='createdAt_asc'>Oldest</option>
             </select>
           </div>
-          <button type="submit" className="rounded-lg text-white bg-blue-600 hover:bg-blue-800 p-3 uppercase">Search</button>
+          <button type="submit" className="rounded-lg w-23 mx-auto  text-white bg-blue-600 hover:bg-blue-800 p-3 uppercase">Search</button>
         </form>
       </div>
 
-      <div className="flex-1">
+      <div className="">
         <h1 className="text-3xl font-semibold border-b  p-3 text-slate-700">Search Results</h1>
-        <div className="p-7 flex  gap-4 ">
+        <div className="p-7 flex flex-wrap gap-4">
           {!loading &&listings.length === 0 && (
             <p className="text-xl text-slate-600 ">There are currently no properties that match your search criteria.</p>
           )}
